@@ -1,0 +1,27 @@
+version: '3.4'
+services:
+  # development:
+  workspace-vnc-bionic-gpu:
+    build:
+      context: .
+      dockerfile: gpu.Dockerfile
+      network: host
+    image: shenlanxueyuan/object-detection-gpu
+    container_name: object-detection-workspace-vnc-bionic-gpu
+    privileged: true
+    environment:
+        # set VNC login password here:
+        - VNC_PASSWORD=shenlanxueyuan
+    # network_mode: host
+    volumes:
+      # mount your workspace here:
+      - ${PWD}/workspace:/workspace
+    ports:
+      # HTML5 VNC:
+      - 40080:80
+      # standard VNC client:
+      - 45901:5901
+      # supervisord admin:
+      - 49001:9001
+      # ROS master:
+      - 41311:11311
