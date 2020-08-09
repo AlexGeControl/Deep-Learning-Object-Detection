@@ -1,0 +1,4 @@
+[submodule "workspace/detectron2"]
+	path = workspace/detectron2
+	url = https://github.com/facebookresearch/detectron2.git
+	branch = master
